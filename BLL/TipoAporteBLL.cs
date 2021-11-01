@@ -10,20 +10,21 @@ using System.Threading.Tasks;
 
 namespace GestionPersonas.BLL
 {
-    public class PersonasBLL
+    public class TipoAporteBLL
     {
-        public static bool Guardar(Personas persona)
+        /*
+        public static bool Guardar(TipoAportes tipoAportes)
         {
-            if (!Existe(persona.PersonaId))
+            if (!Existe(tipoAportes.TipoAporteId))
             {
-                return Insertar(persona);
+                return Insertar(tipoAportes);
             }
             else
             {
-                return Modificar(persona);
+                return Modificar(tipoAportes);
             }
         }
-        private static bool Insertar(Personas persona)
+        private static bool Insertar(TipoAportes tipoAportes)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -31,7 +32,7 @@ namespace GestionPersonas.BLL
             try
             {
                 //Agregar la entidad que se desea insertar al contexto
-                contexto.Personas.Add(persona);
+                contexto.TipoAportes.Add(tipoAportes);
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -45,14 +46,14 @@ namespace GestionPersonas.BLL
 
             return paso;
         }
-        public static bool Modificar(Personas persona)
+        public static bool Modificar(TipoAportes tipoAportes)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                contexto.Entry(persona).State = EntityState.Modified;
+                contexto.Entry(tipoAportes).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -71,11 +72,11 @@ namespace GestionPersonas.BLL
             Contexto contexto = new Contexto();
             try
             {
-                var persona = contexto.Personas.Find(id);
+                var tipoAportes = contexto.TipoAportes.Find(id);
 
-                if (persona != null)
+                if (tipoAportes != null)
                 {
-                    contexto.Personas.Remove(persona);
+                    contexto.TipoAportes.Remove(tipoAportes);
                     paso = contexto.SaveChanges() > 0;
                 }
             }
@@ -89,14 +90,14 @@ namespace GestionPersonas.BLL
             }
             return paso;
         }
-        public static Personas Buscar(int id)
+        public static TipoAportes Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Personas usuario;
+            TipoAportes tipoAportes;
 
             try
             {
-                usuario = contexto.Personas.Find(id);
+                tipoAportes = contexto.TipoAportes.Find(id);
             }
             catch (Exception)
             {
@@ -107,15 +108,15 @@ namespace GestionPersonas.BLL
                 contexto.Dispose();
             }
 
-            return usuario;
+            return tipoAportes;
         }
-        public static List<Personas> GetList(Expression<Func<Personas, bool>> criterio)
+        public static List<TipoAportes> GetList(Expression<Func<TipoAportes, bool>> criterio)
         {
-            List<Personas> lista = new List<Personas>();
+            List<TipoAportes> lista = new List<TipoAportes>();
             Contexto contexto = new Contexto();
             try
             {
-                lista = contexto.Personas.Where(criterio).ToList();
+                lista = contexto.TipoAportes.Where(criterio).ToList();
             }
             catch (Exception)
             {
@@ -133,7 +134,7 @@ namespace GestionPersonas.BLL
             bool encontrado = false;
             try
             {
-                encontrado = contexto.Personas.Any(r => r.PersonaId == id);
+                encontrado = contexto.TipoAportes.Any(r => r.TipoAporteId == id);
             }
             catch (Exception)
             {
@@ -142,18 +143,34 @@ namespace GestionPersonas.BLL
             finally
             {
                 contexto.Dispose();
-                
             }
             return encontrado;
         }
-        public static List<Personas> GetPersonas()
+        public static bool ExisteDescripcion(string descripcion)
         {
-            List<Personas> lista = new List<Personas>();
             Contexto contexto = new Contexto();
-            
+            bool encontrado = false;
             try
             {
-                lista = contexto.Personas.ToList();
+                encontrado = contexto.Roles.Any(r => r.Descripcion == descripcion);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return encontrado;
+        }
+        public static List<TipoAportes> GetRoles()
+        {
+            List<TipoAportes> lista = new List<TipoAportes>();
+            Contexto contexto = new Contexto();
+            try
+            {
+                lista = contexto.TipoAportes.ToList();
             }
             catch (Exception)
             {
@@ -165,5 +182,26 @@ namespace GestionPersonas.BLL
             }
             return lista;
         }
+        public static List<TipoAportes> GetTipoAporte()
+        {
+            List<TipoAportes> lista = new List<TipoAportes>();
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                lista = contexto.TipoAportes.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return lista;
+     
+        }
+        */
     }
 }

@@ -13,6 +13,8 @@
                     <MenuItem x:Name="PersonaMenuItem" Header="Registro de Personas" Click="PersonaMenuItem_Click"/>
                     <MenuItem x:Name="RolMenuItem" Header="Registro de Roles" Click="RolMenuItem_Click"/>
                     <MenuItem x:Name="GrupoMenuItem" Header="Registro de Grupos" Click="GrupoMenuItem_Click"/>
+                    <MenuItem x:Name="Aportes" Header="Registro de Aportes" Click="BTAportes" />
+                    <MenuItem x:Name="TipoAportes" Header="Registro de Tipo Aportes" Click="TipoAport" />
                 </MenuItem>
             </Menu>
         </StackPanel>
