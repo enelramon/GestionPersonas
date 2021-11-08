@@ -31,6 +31,7 @@ namespace GestionPersonas.BLL
 
                 foreach (var detalle in grupo.Detalle)
                 {
+                    contexto.Entry(detalle.Persona).State = EntityState.Modified;
                     detalle.Persona.CantidadGrupos += 1;
                 }
 
@@ -38,7 +39,7 @@ namespace GestionPersonas.BLL
             }
             catch (Exception)
             {
-                throw;
+                 throw;
             }
             finally
             {
