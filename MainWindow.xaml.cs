@@ -1,4 +1,5 @@
-﻿using GestionPersonas.UI.Registros;
+﻿using GestionPersonas.Entidades;
+using GestionPersonas.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,6 +43,18 @@ namespace GestionPersonas
         {
             rGrupos grupo = new rGrupos();
             grupo.Show();
+        }
+
+        private void BTAportes(object sender, RoutedEventArgs e)
+        {
+            rAportes aporte = new rAportes();
+            aporte.Show();
+        }
+
+        private void TipoAport(object sender, RoutedEventArgs e)
+        {
+            /*rTipoAporte tipo = new rTipoAporte();
+            tipo.Show();*/
         }
     }
 }
